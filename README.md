@@ -1,6 +1,6 @@
 # ansible-role-apt-repo
 
-A brief description of the role goes here.
+Add apt keys and apt repositories.
 
 # Requirements
 
