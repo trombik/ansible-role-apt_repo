@@ -2,4 +2,9 @@
   roles:
     - ansible-role-apt-repo
   vars:
-    apt-repo_config: ""
+    apt_repo_keys_to_add:
+      - https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    apt_repo_to_add:
+      - deb https://artifacts.elastic.co/packages/5.x/apt stable main
+      - ppa:webupd8team/java
+    apt_repo_enable_apt_transport_https: True

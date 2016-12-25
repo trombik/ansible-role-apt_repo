@@ -6,20 +6,11 @@ galaxy_info:
   license: BSD
   min_ansible_version: 2.0
   platforms:
-  - name: FreeBSD
+  - name: Ubuntu
     versions:
-    - 10.3
-#  - name: OpenBSD
-#    versions:
-#    - 6.0
-#  - name: Ubuntu
-#    versions:
-#    - trusty
-#  - name: EL
-#    versions:
-#    - 7
+    - trusty
 
   galaxy_tags:
-    - system
+    - apt
 #dependencies:
 #  - { role: username.common, some_parameter: 3 }

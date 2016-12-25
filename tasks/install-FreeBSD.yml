@@ -1,6 +1,0 @@
----
-
-- name: Install apt-repo
-  pkgng:
-    name: apt-repo
-    state: present

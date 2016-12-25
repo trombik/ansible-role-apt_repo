@@ -1,58 +1,18 @@
 require 'spec_helper'
 require 'serverspec'
 
-package = 'apt-repo'
-service = 'apt-repo'
-config  = '/etc/apt-repo/apt-repo.conf'
-user    = 'apt-repo'
-group   = 'apt-repo'
-ports   = [ PORTS ]
-log_dir = '/var/log/apt-repo'
-db_dir  = '/var/lib/apt-repo'
-
-case os[:family]
-when 'freebsd'
-  config = '/usr/local/etc/apt-repo.conf'
-  db_dir = '/var/db/apt-repo'
-end
-
-describe package(package) do
+describe package("apt-transport-https") do
   it { should be_installed }
+end
+
+describe command("apt-key list") do
+  its(:stdout) { should match(/^pub\s+2048R\/D88E42B4\s+.*$/) }
+end
+
+describe file("/etc/apt/sources.list.d/artifacts_elastic_co_packages_5_x_apt.list") do
+  its(:content) { should match(/^deb #{ Regexp.escape("https://artifacts.elastic.co/packages/5.x/apt") } stable main$/) }
+end
+
+describe file("/etc/apt/sources.list.d/ppa_webupd8team_java_trusty.list") do
+  its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/webupd8team/java/ubuntu") } trusty main$/) }
 end 
-
-describe file(config) do
-  it { should be_file }
-  its(:content) { should match Regexp.escape('apt-repo') }
-end
-
-describe file(log_dir) do
-  it { should exist }
-  it { should be_mode 755 }
-  it { should be_owned_by user }
-  it { should be_grouped_into group }
-end
-
-describe file(db_dir) do
-  it { should exist }
-  it { should be_mode 755 }
-  it { should be_owned_by user }
-  it { should be_grouped_into group }
-end
-
-case os[:family]
-when 'freebsd'
-  describe file('/etc/rc.conf.d/apt-repo') do
-    it { should be_file }
-  end
-end
-
-describe service(service) do
-  it { should be_running }
-  it { should be_enabled }
-end
-
-ports.each do |p|
-  describe port(p) do
-    it { should be_listening }
-  end
-end

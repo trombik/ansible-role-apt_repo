@@ -8,9 +8,11 @@ None
 
 # Role Variables
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
-
+| `apt_repo_to_add` | list of apt repository URLs | `[]` |
+| `apt_repo_keys_to_add` | list of apt key URLs | `[]` |
+| `apt_repo_enable_apt_transport_https` | install `apt-transport-https` if `True` | `false` |
 
 # Dependencies
 
@@ -19,6 +21,16 @@ None
 # Example Playbook
 
 ```yaml
+- hosts: localhost
+  roles:
+    - ansible-role-apt-repo
+  vars:
+    apt_repo_keys_to_add:
+      - https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    apt_repo_to_add:
+      - deb https://artifacts.elastic.co/packages/5.x/apt stable main
+      - ppa:webupd8team/java
+    apt_repo_enable_apt_transport_https: True
 ```
 
 # License
@@ -42,5 +54,3 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 # Author Information
 
 Tomoyuki Sakurai <tomoyukis@reallyenglish.com>
-
-This README was created by [qansible](https://github.com/trombik/qansible)
