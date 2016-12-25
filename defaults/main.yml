@@ -1,0 +1,8 @@
+apt-repo_user: apt-repo
+apt-repo_group: apt-repo
+apt-repo_log_dir: /var/log/apt-repo
+apt-repo_db_dir: "{{ __apt-repo_db_dir }}"
+apt-repo_service: apt-repo
+apt-repo_conf_dir: "{{ __apt-repo_conf_dir }}"
+apt-repo_conf_file: "{{ __apt-repo_conf_dir }}/apt-repo.conf"
+apt-repo_flags: ""

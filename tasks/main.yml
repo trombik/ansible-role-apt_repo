@@ -1,0 +1,37 @@
+---
+# tasks file for ansible-role-apt-repo
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- include: "install-{{ ansible_os_family }}.yml"
+
+- name: Create log directory
+  file:
+    path: "{{ apt-repo_log_dir }}"
+    mode: 0755
+    owner: "{{ apt-repo_user }}"
+    group: "{{ apt-repo_group }}"
+    state: directory
+  notify: Restart apt-repo
+
+- name: Create db directory
+  file:
+    path: "{{ apt-repo_db_dir }}"
+    mode: 0755
+    owner: "{{ apt-repo_user }}"
+    group: "{{ apt-repo_group }}"
+    state: directory
+  notify: Restart apt-repo
+
+- name: Create apt-repo.conf
+  template:
+    src: apt-repo.conf.j2
+    dest: "{{ apt-repo_conf_file }}"
+    validate: echo %s
+  notify: Restart apt-repo
+
+- name: Start apt-repo
+  service:
+    name: "{{ apt-repo_service }}"
+    enabled: true
+    state: started

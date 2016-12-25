@@ -1,0 +1,6 @@
+---
+
+- name: Restart apt-repo
+  service:
+    name: apt-repo
+    state: restarted
