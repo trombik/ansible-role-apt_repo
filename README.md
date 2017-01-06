@@ -2,6 +2,10 @@
 
 Add apt keys and apt repositories.
 
+## Debian and PPA
+
+The role, deliverately, does not support adding PPA repositories in Debian.
+
 # Requirements
 
 None
@@ -27,9 +31,7 @@ None
   vars:
     apt_repo_keys_to_add:
       - https://artifacts.elastic.co/GPG-KEY-elasticsearch
-    apt_repo_to_add:
-      - deb https://artifacts.elastic.co/packages/5.x/apt stable main
-      - ppa:webupd8team/java
+    apt_repo_to_add: "{% if ansible_distribution == 'Debian' %}[ 'deb https://artifacts.elastic.co/packages/5.x/apt stable main' ]{% elif ansible_distribution == 'Ubuntu' %}[ 'deb https://artifacts.elastic.co/packages/5.x/apt stable main', 'ppa:webupd8team/java' ]{% endif %}"
     apt_repo_enable_apt_transport_https: True
 ```
 

@@ -13,6 +13,9 @@ describe file("/etc/apt/sources.list.d/artifacts_elastic_co_packages_5_x_apt.lis
   its(:content) { should match(/^deb #{ Regexp.escape("https://artifacts.elastic.co/packages/5.x/apt") } stable main$/) }
 end
 
-describe file("/etc/apt/sources.list.d/ppa_webupd8team_java_trusty.list") do
-  its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/webupd8team/java/ubuntu") } trusty main$/) }
-end 
+case os[:family]
+when "ubuntu"
+  describe file("/etc/apt/sources.list.d/ppa_webupd8team_java_trusty.list") do
+    its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/webupd8team/java/ubuntu") } trusty main$/) }
+  end
+end
