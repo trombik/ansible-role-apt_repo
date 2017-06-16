@@ -2,7 +2,7 @@
 # tasks file for ansible-role-apt-repo
 
 - include_vars: "{{ ansible_os_family }}.yml"
-  when: "{{ ansible_os_family == 'Debian' }}"
+  when: ansible_os_family == 'Debian'
 
 - include: "install-{{ ansible_distribution }}.yml"
-  when: "{{ ansible_os_family == 'Debian' }}"
+  when: ansible_os_family == 'Debian'
