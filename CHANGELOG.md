@@ -1,3 +1,7 @@
+## Release 1.2.1
+
+* 7d8050f [bugfix] Update rubocop to the latest (#1)
+
 ## Release 1.2.0
 
 * 8c8938e [bugfix][feature] Remove warnings from ansible and support ubuntu 16.04 (#5)
