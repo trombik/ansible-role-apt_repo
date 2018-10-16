@@ -9,4 +9,4 @@
 
   pre_tasks:
   roles:
-    - apt-repo
+    - apt_repo
