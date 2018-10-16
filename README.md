@@ -1,4 +1,4 @@
-# ansible-role-apt-repo
+# ansible-role-apt_repo
 
 Add apt keys and apt repositories.
 
@@ -27,7 +27,7 @@ None
 ```yaml
 - hosts: localhost
   roles:
-    - ansible-role-apt-repo
+    - ansible-role-apt_repo
   vars:
     apt_repo_keys_to_add:
       - https://artifacts.elastic.co/GPG-KEY-elasticsearch
