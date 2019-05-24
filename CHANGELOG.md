@@ -1,3 +1,8 @@
+## Release 2.1.0
+
+* dbc9023 feature: support Ubuntu 18.04
+* 4e12815 bugfix: QA
+
 ## Release 2.0.0
 
 * 1c8431f bugfix: QA
