@@ -22,6 +22,14 @@ describe package("apt-transport-https") do
   it { should be_installed }
 end
 
+describe package("gnupg") do
+  it { should be_installed }
+end
+
+describe file("/usr/bin/gpg") do
+  it { should be_file }
+end
+
 describe command("apt-key list") do
   if os[:release].to_f >= 18.04
     its(:stdout) { should match(/#{elasticsearch_key}/) }
