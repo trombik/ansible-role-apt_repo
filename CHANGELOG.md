@@ -1,3 +1,9 @@
+## Release 2.1.1
+
+* 5eea731 QA
+* 3ee46bd QA
+* f7e3069 bugfix: install required gpg
+
 ## Release 2.1.0
 
 * dbc9023 feature: support Ubuntu 18.04
