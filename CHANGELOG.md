@@ -1,3 +1,8 @@
+## Release 2.1.2
+
+* 34de1c7 bugfix: add ansible.cfg
+* 8350aca bugfix: remove `if ... else`
+
 ## Release 2.1.1
 
 * 5eea731 QA
