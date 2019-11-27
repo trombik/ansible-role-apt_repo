@@ -1,6 +1,7 @@
 require "spec_helper"
 require "serverspec"
 
+packages = %w[gnupg ca-certificates]
 codename = Specinfra.backend.run_command("lsb_release -c")
                     .stdout.strip.split(" ")[1]
 # apt-key output:
@@ -18,12 +19,10 @@ elasticsearch_key_id = "2048R/D88E42B4"
 # sub   rsa2048 2013-09-16 [E]
 elasticsearch_key = "4609 5ACC 8548 582C 1A26  99A9 D27D 666C D88E 42B4"
 
-describe package("apt-transport-https") do
-  it { should be_installed }
-end
-
-describe package("gnupg") do
-  it { should be_installed }
+packages.each do |p|
+  describe package(p) do
+    it { should be_installed }
+  end
 end
 
 describe file("/usr/bin/gpg") do
