@@ -1,3 +1,10 @@
+## Release 2.2.0
+
+* 808b8f6 bugfix, feature: install required packages, introducing `apt_repo_required_packages`
+* 73f164f bugfix: QA
+* acdcb28 bugfix: update box list, drop Ubuntu 14.04
+* 72985fb bugfix: QA
+
 ## Release 2.1.2
 
 * 34de1c7 bugfix: add ansible.cfg
