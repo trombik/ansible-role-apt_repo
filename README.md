@@ -17,6 +17,13 @@ None
 | `apt_repo_to_add` | list of apt repository URLs | `[]` |
 | `apt_repo_keys_to_add` | list of apt key URLs | `[]` |
 | `apt_repo_enable_apt_transport_https` | install `apt-transport-https` if `True` | `false` |
+| `apt_repo_required_packages`| List of require packages | `{{ __apt_repo_required_packages }}` |
+
+## Debian
+
+| Variable | Default |
+|----------|---------|
+| `__apt_repo_required_packages` | `["gnupg", "ca-certificates"]` |
 
 # Dependencies
 

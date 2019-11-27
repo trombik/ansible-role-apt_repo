@@ -1,8 +1,8 @@
 ---
 
-- name: Install gpg
+- name: Install apt_repo_required_packages
   apt:
-    name: gnupg
+    name: "{{ apt_repo_required_packages }}"
     state: present
 
 - name: Install apt-transport-https

@@ -5,9 +5,9 @@
     msg: "cannot add repository `{{ item }}`. it must start with `deb(?:-src)?`. also, you cannot add a PPA repository, which is designed for Ubuntu, not for {{ ansible_distribution }}"
   with_items: "{{ apt_repo_to_add }}"
 
-- name: Install gpg
+- name: Install apt_repo_required_packages
   apt:
-    name: gpg
+    name: "{{ apt_repo_required_packages }}"
     state: present
 
 - name: Install apt-transport-https
