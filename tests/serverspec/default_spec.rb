@@ -37,13 +37,14 @@ describe command("apt-key list") do
   end
 end
 
-describe file("/etc/apt/sources.list.d/artifacts_elastic_co_packages_5_x_apt.list") do
-  its(:content) { should match(/^deb #{ Regexp.escape("https://artifacts.elastic.co/packages/5.x/apt") } stable main$/) }
+describe file("/etc/apt/sources.list.d/artifacts_elastic_co_packages_7_x_apt.list") do
+  its(:content) { should match(/^deb #{ Regexp.escape("https://artifacts.elastic.co/packages/7.x/apt") } stable main$/) }
 end
 
+# ppa:ubuntuhandbook1/audacity
 case os[:family]
 when "ubuntu"
-  describe file("/etc/apt/sources.list.d/ppa_webupd8team_java_#{codename}.list") do
-    its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/webupd8team/java/ubuntu") } #{codename} main$/) }
+  describe file("/etc/apt/sources.list.d/ppa_ubuntuhandbook1_audacity_#{codename}.list") do
+    its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/ubuntuhandbook1/audacity/ubuntu") } #{codename} main$/) }
   end
 end
