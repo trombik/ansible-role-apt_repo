@@ -1,3 +1,11 @@
+## Release 2.2.1
+
+* 8ee8512 build(deps): bump rubyzip from 1.2.3 to 2.3.0
+* a6da223 build(deps): bump rake from 12.3.2 to 12.3.3
+* 756daf3 bugfix: remove unused ansible_vault_password_file
+* 23b2d95 bugfix: QA
+* 3b32a8f bugfix: add Ubuntu 20.04
+
 ## Release 2.2.0
 
 * 808b8f6 bugfix, feature: install required packages, introducing `apt_repo_required_packages`
