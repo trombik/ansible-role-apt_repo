@@ -11,12 +11,12 @@ addons:
     packages:
       - python3-pip
       - curl
-cache:
-  directories:
-    - $HOME/.rvm/
-    - $HOME/.bundler/
-    - $HOME/.cache/pip/
-  pip: true
+cache: false
+#  directories:
+#    - $HOME/.rvm/
+#    - $HOME/.bundler/
+#    - $HOME/.cache/pip/
+#  pip: true
 
 env:
   - PLATFORM=freebsd
