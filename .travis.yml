@@ -16,7 +16,6 @@ cache:
     - $HOME/.rvm/
     - $HOME/.bundler/
     - $HOME/.cache/pip/
-    - $HOME/.vagrant.d/boxes/
   pip: true
 
 env:
@@ -103,7 +102,7 @@ script:
   - yamllint -c .yamllint.yml .
 
   # run the QA test
-  - qansible qa
+  # - qansible qa
   - export VAGRANT_PROVIDER=virtualbox
   - bundle exec kitchen list
   - |
