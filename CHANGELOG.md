@@ -1,3 +1,8 @@
+## Release 2.2.2
+
+* dc2af68 ci: import GitHub Actions workflows
+* 4c598cf bugfix: update `assert` condition
+
 ## Release 2.2.1
 
 * 1d5375b bugfix: update gems
