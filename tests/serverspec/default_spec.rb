@@ -30,10 +30,15 @@ describe file("/usr/bin/gpg") do
 end
 
 describe command("apt-key list") do
-  if os[:release].to_f >= 18.04
+  case os[:family]
+  when "ubuntu"
+    if os[:release].to_f >= 18.04
+      its(:stdout) { should match(/#{elasticsearch_key}/) }
+    else
+      its(:stdout) { should match(/^pub\s+#{elasticsearch_key_id}\s+.*$/) }
+    end
+  when "devuan"
     its(:stdout) { should match(/#{elasticsearch_key}/) }
-  else
-    its(:stdout) { should match(/^pub\s+#{elasticsearch_key_id}\s+.*$/) }
   end
 end
 
