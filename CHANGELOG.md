@@ -1,3 +1,8 @@
+## Release 3.0.0
+
+* de27515 feature: support Devuan
+* c9911e5 doc: update contact
+
 ## Release 2.2.2
 
 * dc2af68 ci: import GitHub Actions workflows
