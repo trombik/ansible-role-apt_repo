@@ -1,10 +1,10 @@
-# ansible-role-apt_repo
+# `ansible-role-apt_repo`
 
 Add apt keys and apt repositories.
 
 ## Debian and PPA
 
-The role, deliverately, does not support adding PPA repositories in Debian.
+The role, deliberately, does not support adding PPA repositories in Debian.
 
 # Requirements
 
@@ -40,10 +40,14 @@ None
     apt_repo_keys_to_add:
       - https://artifacts.elastic.co/GPG-KEY-elasticsearch
     dist_apt_repo_to_add:
-      Debian: deb https://artifacts.elastic.co/packages/5.x/apt stable main
+      Debian:
+        - deb https://artifacts.elastic.co/packages/7.x/apt stable main
+      Devuan:
+        - deb https://artifacts.elastic.co/packages/7.x/apt stable main
       Ubuntu:
-        - deb https://artifacts.elastic.co/packages/5.x/apt stable main
-        - ppa:webupd8team/java
+        - deb https://artifacts.elastic.co/packages/7.x/apt stable main
+        - ppa:ubuntuhandbook1/audacity
+
     apt_repo_to_add: "{{ dist_apt_repo_to_add[ansible_distribution] }}"
     apt_repo_enable_apt_transport_https: True
 ```

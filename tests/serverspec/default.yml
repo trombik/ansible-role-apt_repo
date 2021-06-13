@@ -8,6 +8,8 @@
     dist_apt_repo_to_add:
       Debian:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
+      Devuan:
+        - deb https://artifacts.elastic.co/packages/7.x/apt stable main
       Ubuntu:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
         - ppa:ubuntuhandbook1/audacity

@@ -12,6 +12,9 @@ galaxy_info:
         - xenial
         - bionic
         - focal
+    - name: Devuan
+      versions:
+        - beowulf
   galaxy_tags:
     - apt
 dependencies: []
