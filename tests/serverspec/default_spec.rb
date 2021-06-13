@@ -52,4 +52,8 @@ when "ubuntu"
   describe file("/etc/apt/sources.list.d/ppa_ubuntuhandbook1_audacity_#{codename}.list") do
     its(:content) { should match(/^deb #{ Regexp.escape("http://ppa.launchpad.net/ubuntuhandbook1/audacity/ubuntu") } #{codename} main$/) }
   end
+when "devuan"
+  describe file("/etc/apt/sources.list.d/repos_influxdata_com_debian.list") do
+    its(:content) { should match(/^deb #{ Regexp.escape("https://repos.influxdata.com/debian") } \S+ stable$/) }
+  end
 end
