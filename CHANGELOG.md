@@ -1,3 +1,7 @@
+## Release 3.1.0
+
+* 8f12306 feature: introduce `apt_repo_codename_devuan_to_debian`
+
 ## Release 3.0.0
 
 * de27515 feature: support Devuan
