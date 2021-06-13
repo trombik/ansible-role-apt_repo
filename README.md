@@ -18,6 +18,12 @@ None
 | `apt_repo_keys_to_add` | list of apt key URLs | `[]` |
 | `apt_repo_enable_apt_transport_https` | install `apt-transport-https` if `True` | `false` |
 | `apt_repo_required_packages`| List of require packages | `{{ __apt_repo_required_packages }}` |
+| `apt_repo_codename_devuan_to_debian` | A dict to map Devuan codename to Debian codename | see below |
+
+## `apt_repo_codename_devuan_to_debian`
+
+A dict to map Devuan codename to Debian codename. Keys are Devuan codename,
+and values are corresponding Debian codename.
 
 ## Debian
 
@@ -39,11 +45,13 @@ None
   vars:
     apt_repo_keys_to_add:
       - https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      - https://repos.influxdata.com/influxdb.key
     dist_apt_repo_to_add:
       Debian:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
       Devuan:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
+        - "deb https://repos.influxdata.com/debian {{ apt_repo_codename_devuan_to_debian[ansible_distribution_release] }} stable"
       Ubuntu:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
         - ppa:ubuntuhandbook1/audacity
