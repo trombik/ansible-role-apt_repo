@@ -23,16 +23,6 @@ provisioner:
     - extra_roles
 
 platforms:
-  - name: ubuntu-16.04-amd64
-    driver:
-      box: trombik/ansible-ubuntu-16.04-amd64
-      box_check_update: false
-
-  - name: ubuntu-18.04-amd64
-    driver:
-      box: trombik/ansible-ubuntu-18.04-amd64
-      box_check_update: false
-
   - name: ubuntu-20.04-amd64
     driver:
       box: trombik/ansible-ubuntu-20.04-amd64
