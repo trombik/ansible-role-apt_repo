@@ -51,7 +51,7 @@ None
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
       Devuan:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
-        - "deb https://repos.influxdata.com/debian {{ apt_repo_codename_devuan_to_debian[ansible_distribution_release] }} stable"
+        - "deb https://repos.influxdata.com/debian {{ apt_repo_codename_devuan_to_debian[ansible_distribution_release] | default("") }} stable"
       Ubuntu:
         - deb https://artifacts.elastic.co/packages/7.x/apt stable main
         - ppa:ubuntuhandbook1/audacity
