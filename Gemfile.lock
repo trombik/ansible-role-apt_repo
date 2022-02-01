@@ -161,6 +161,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   kitchen-ansible
@@ -175,4 +176,4 @@ DEPENDENCIES
   test-kitchen
 
 BUNDLED WITH
-   2.1.4
+   2.2.19
